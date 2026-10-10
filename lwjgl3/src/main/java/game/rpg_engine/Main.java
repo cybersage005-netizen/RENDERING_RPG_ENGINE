@@ -8,11 +8,13 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import game.rpg_engine.asset_util.Files;
 import game.rpg_engine.asset_util.identifiers.Identifier;
+import game.rpg_engine.asset_util.sprites.SpriteHandler;
 import game.rpg_engine.client.ClientInstance;
 import game.rpg_engine.client.Renderer;
 import game.rpg_engine.entity.player.Player;
 import game.rpg_engine.entity.slime.Slime;
 import game.rpg_engine.feature.ObstacleFeature;
+import game.rpg_engine.input.server.ServerHandler;
 import game.rpg_engine.registries.BuiltInRegistries;
 import game.rpg_engine.registries.Items;
 import game.rpg_engine.world.Map;
@@ -59,6 +61,7 @@ public class Main implements ApplicationListener {
     public void create() {
         spriteBatch = new SpriteBatch();
         viewport = new FitViewport(8, 5);
+        SpriteHandler.init();
     }
 
     @Override
@@ -69,7 +72,7 @@ public class Main implements ApplicationListener {
     @Override
     public void render() {
         Renderer.draw(spriteBatch, viewport);
-
+        ServerHandler.tick(spriteBatch, viewport);
     }
 
     @Override

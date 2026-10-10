@@ -5,17 +5,17 @@ import com.badlogic.gdx.Input;
 import org.lwjgl.system.windows.INPUT;
 
 public class InputUtils {
-    public boolean isWPressed(){
-        return Gdx.input.isButtonPressed(Input.Keys.W);
+    public static boolean isWPressed(){
+        return Gdx.input.isKeyPressed(Input.Keys.W);
     }
-    public boolean isSPressed(){
-        return Gdx.input.isButtonPressed(Input.Keys.S);
+    public static boolean isSPressed(){
+        return Gdx.input.isKeyPressed(Input.Keys.S);
     }
-    public boolean isDPressed(){
-        return Gdx.input.isButtonPressed(Input.Keys.D);
+    public static boolean isDPressed(){
+        return Gdx.input.isKeyPressed(Input.Keys.D);
     }
-    public boolean isAPressed(){
-        return Gdx.input.isButtonPressed(Input.Keys.A);
+    public static boolean isAPressed(){
+        return Gdx.input.isKeyPressed(Input.Keys.A);
     }
 
 

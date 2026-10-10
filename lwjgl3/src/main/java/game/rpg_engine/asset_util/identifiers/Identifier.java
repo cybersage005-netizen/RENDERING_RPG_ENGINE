@@ -20,7 +20,7 @@ public class Identifier {
         this.id = id;
     }
 
-    public final static Identifier of(String id){
+    public static Identifier of(String id){
         try{
             return new Identifier(id);
         } catch (IllegalAccessException e) {
@@ -34,7 +34,7 @@ public class Identifier {
             return false;
         }
 
-        if(!str.contains(".") && !shouldContainDot){
+        if(!str.contains(".") && shouldContainDot){
             return false;
         }
 

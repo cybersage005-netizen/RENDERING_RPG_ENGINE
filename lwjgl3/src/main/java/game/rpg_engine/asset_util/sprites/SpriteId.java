@@ -7,13 +7,24 @@ public class SpriteId extends Identifier {
         super(id, false);
     }
 
-    public boolean equals(SpriteId spriteId){
-        return this.getId().equals(spriteId.getId());
+    public boolean equals(Object spriteId){
+        if(spriteId instanceof SpriteId sprite){
+            return this.getId().equals(sprite.getId());
+        }
+       return false;
     }
 
     @Override
     public int hashCode() {
         return getId().hashCode();
+    }
+
+    public static SpriteId of(String id){
+        try{
+            return new SpriteId(id);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
