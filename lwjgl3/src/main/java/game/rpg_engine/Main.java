@@ -20,6 +20,7 @@ import game.rpg_engine.world.MapCollection;
 import game.rpg_engine.world.RelativeCord;
 import game.rpg_engine.world.WorldCord;
 
+
 import java.util.Scanner;
 
 public class Main implements ApplicationListener {

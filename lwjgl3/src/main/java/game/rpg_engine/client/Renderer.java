@@ -14,8 +14,19 @@ public class Renderer {
         spriteBatch.setProjectionMatrix(viewport.getCamera().combined);
         spriteBatch.begin();
 
-        spriteBatch.draw(Files.getEntity(Identifier.of("player/player.png")), 0, 0, 4, 4); // draw the bucket with width/height of 1 meter
-
+         // draw the bucket with width/height of 1 meter
+        // Draw the background first
+        spriteBatch.draw(
+            Files.getEntity(
+                Identifier.of("menu/menu_background_image.jpg")
+            ),
+            0, 0, 20, 12
+        );
+// Draw the player afterward
+        spriteBatch.draw(
+            Files.getEntity(Identifier.of("menu/menu_background_image.jpg")),
+            0, 0, 8, 5
+        );
         spriteBatch.end();
     }
 }
