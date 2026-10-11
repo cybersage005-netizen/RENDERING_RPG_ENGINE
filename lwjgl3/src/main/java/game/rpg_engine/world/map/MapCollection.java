@@ -1,4 +1,6 @@
-package game.rpg_engine.world;
+package game.rpg_engine.world.map;
+
+import game.rpg_engine.world.coordinates.WorldCord;
 
 import java.util.HashMap;
 

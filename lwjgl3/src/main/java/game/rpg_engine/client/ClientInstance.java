@@ -4,9 +4,9 @@ import game.rpg_engine.entity.Entity;
 import game.rpg_engine.entity.player.Player;
 import game.rpg_engine.entity.player.PlayerStatus;
 import game.rpg_engine.feature.Feature;
-import game.rpg_engine.world.Map;
-import game.rpg_engine.world.MapCollection;
-import game.rpg_engine.world.WorldCord;
+import game.rpg_engine.world.map.Map;
+import game.rpg_engine.world.map.MapCollection;
+import game.rpg_engine.world.coordinates.WorldCord;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;

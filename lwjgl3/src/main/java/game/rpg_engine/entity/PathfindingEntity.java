@@ -1,8 +1,8 @@
 package game.rpg_engine.entity;
 import game.rpg_engine.enums.Direction;
 import game.rpg_engine.feature.Feature;
-import game.rpg_engine.world.Map;
-import game.rpg_engine.world.RelativeCord;
+import game.rpg_engine.world.map.Map;
+import game.rpg_engine.world.coordinates.RelativeCord;
 
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package game.rpg_engine.world;
+package game.rpg_engine.world.map;
 import game.rpg_engine.entity.Entity;
 import game.rpg_engine.entity.Ticker;
 import game.rpg_engine.enums.Direction;
@@ -6,6 +6,8 @@ import game.rpg_engine.feature.BlankFeature;
 import game.rpg_engine.feature.Feature;
 import game.rpg_engine.feature.ObstacleFeature;
 import game.rpg_engine.entity.player.Player;
+import game.rpg_engine.world.coordinates.RelativeCord;
+import game.rpg_engine.world.coordinates.WorldCord;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -15,7 +17,7 @@ public class Map {
     int y;
     WorldCord cord;
     public Feature[][] FEATURES = new Feature[0][0];
-    public ArrayList<Entity> ENTITIES = new ArrayList();
+    public ArrayList<Entity> ENTITIES = new ArrayList<>();
 
     Map(WorldCord cord, int x, int y) {
         this.x = x;
@@ -96,6 +98,18 @@ public class Map {
             }
         }
 
+    }
+
+    public String toString(){
+        String str = "";
+        for(Feature[] f :  FEATURES){
+            for(Feature ff : f){
+                str = str.concat(Character.toString(ff.getId()));
+            }
+            str = str.concat("\n");
+        }
+
+        return str;
     }
 
     public Optional<Feature> getFeatureAt(RelativeCord cord) {

@@ -1,6 +1,8 @@
-package game.rpg_engine.world;
+package game.rpg_engine.world.coordinates;
 
 import game.rpg_engine.enums.Direction;
+import game.rpg_engine.world.Coordinates;
+import game.rpg_engine.world.map.Map;
 
 public class RelativeCord extends Coordinates<RelativeCord> {
     private Map map;

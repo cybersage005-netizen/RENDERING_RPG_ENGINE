@@ -3,8 +3,8 @@ package game.rpg_engine.world;
 import java.util.Objects;
 
 public class Coordinates<T extends Coordinates> {
-    int x;
-    int y;
+    protected int x;
+    protected int y;
 
     protected Coordinates(int x, int y) {
         this.x = x;

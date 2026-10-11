@@ -2,7 +2,7 @@ package game.rpg_engine.entity.slime;
 import game.rpg_engine.entity.PathfindingEntity;
 import game.rpg_engine.entity.player.Player;
 import game.rpg_engine.util.Random;
-import game.rpg_engine.world.RelativeCord;
+import game.rpg_engine.world.coordinates.RelativeCord;
 
 import java.util.List;
 

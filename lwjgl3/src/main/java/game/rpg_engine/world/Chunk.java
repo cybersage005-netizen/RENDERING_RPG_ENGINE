@@ -1,6 +1,8 @@
 package game.rpg_engine.world;
 import game.rpg_engine.entity.Entity;
 import game.rpg_engine.feature.Feature;
+import game.rpg_engine.world.coordinates.RelativeCord;
+import game.rpg_engine.world.map.Map;
 
 import java.util.HashMap;
 

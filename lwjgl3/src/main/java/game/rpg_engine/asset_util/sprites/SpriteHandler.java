@@ -1,9 +1,10 @@
 package game.rpg_engine.asset_util.sprites;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import game.rpg_engine.asset_util.Files;
+import game.rpg_engine.asset_util.FileUtil;
 import game.rpg_engine.asset_util.identifiers.Identifier;
-import game.rpg_engine.client.CanRender;
+import game.rpg_engine.util.Constants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,9 +29,12 @@ public class SpriteHandler {
     }
 
     public static void init(){
+        Texture playerText = FileUtil.getEntity(Identifier.of("player/player", false));
+        float w = playerText.getWidth() * Constants.UNIT_SCALE;
+        float h = playerText.getHeight() * Constants.UNIT_SCALE;
         SpriteHandler.addSprite("player",
             new BaseSprite(SpriteId.of("player"),
-                new Sprite(Files.getEntity(Identifier.of("player/player.png"))),
-                0f,0f, 4f, 4f));
+                new Sprite(playerText),
+                0f,0f, h, w ));
     }
 }

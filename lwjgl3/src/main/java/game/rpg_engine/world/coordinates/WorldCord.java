@@ -1,4 +1,6 @@
-package game.rpg_engine.world;
+package game.rpg_engine.world.coordinates;
+
+import game.rpg_engine.world.Coordinates;
 
 public class WorldCord extends Coordinates<WorldCord> {
     private WorldCord(int x, int y) {

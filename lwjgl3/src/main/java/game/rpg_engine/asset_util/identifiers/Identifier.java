@@ -28,6 +28,14 @@ public class Identifier {
         }
     }
 
+    public static Identifier of(String id, boolean shouldContainDot){
+        try{
+            return new Identifier(id, shouldContainDot);
+        }catch (IllegalAccessException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     private boolean isValid(String str, boolean shouldContainDot){
 
         if(str.contains(" ")){

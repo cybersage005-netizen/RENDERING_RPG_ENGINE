@@ -1,37 +1,26 @@
 package game.rpg_engine;
 
 import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import game.rpg_engine.asset_util.Files;
-import game.rpg_engine.asset_util.identifiers.Identifier;
 import game.rpg_engine.asset_util.sprites.SpriteHandler;
-import game.rpg_engine.client.ClientInstance;
-import game.rpg_engine.client.Renderer;
-import game.rpg_engine.entity.player.Player;
-import game.rpg_engine.entity.slime.Slime;
-import game.rpg_engine.feature.ObstacleFeature;
+import game.rpg_engine.asset_util.tile.tilesets.TileSetHandler;
+import game.rpg_engine.client.renderers.MainRenderer;
 import game.rpg_engine.input.server.ServerHandler;
-import game.rpg_engine.registries.BuiltInRegistries;
-import game.rpg_engine.registries.Items;
-import game.rpg_engine.world.Map;
-import game.rpg_engine.world.MapCollection;
-import game.rpg_engine.world.RelativeCord;
-import game.rpg_engine.world.WorldCord;
-
-import java.util.Scanner;
+import game.rpg_engine.util.Constants;
+import game.rpg_engine.world.coordinates.WorldCord;
+import game.rpg_engine.world.map.Map;
+import game.rpg_engine.world.map.MapCollection;
 
 public class Main implements ApplicationListener {
     SpriteBatch spriteBatch;
     Viewport viewport;
+    MapCollection maps = new MapCollection();
 //    public static void main(){
 //        BuiltInRegistries.callOut();
 //
-//        MapCollection Maps = new MapCollection();
-//        Maps.register();
+//
 //        Map ORIGIN = Maps.getMap(WorldCord.of(0, 0));
 //        ORIGIN.setFeature(new ObstacleFeature(RelativeCord.of(4, 5, ORIGIN)));
 //        ORIGIN.setPlayer(new Player(RelativeCord.of(1, 1, ORIGIN), ORIGIN, 90));
@@ -60,8 +49,10 @@ public class Main implements ApplicationListener {
     @Override
     public void create() {
         spriteBatch = new SpriteBatch();
-        viewport = new FitViewport(8, 5);
+        viewport = new FitViewport(Constants.VIEWPORT_TILES_X, Constants.VIEWPORT_TILES_Y);
         SpriteHandler.init();
+        maps.register();
+        TileSetHandler.fetchAllTileSets();
     }
 
     @Override
@@ -71,7 +62,7 @@ public class Main implements ApplicationListener {
 
     @Override
     public void render() {
-        Renderer.draw(spriteBatch, viewport);
+        MainRenderer.draw(spriteBatch, viewport, maps);
         ServerHandler.tick(spriteBatch, viewport);
     }
 

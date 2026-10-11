@@ -4,10 +4,8 @@ import game.rpg_engine.entity.Entity;
 import game.rpg_engine.entity.Ticker;
 import game.rpg_engine.entity.player.inventory.HasInventory;
 import game.rpg_engine.entity.player.inventory.Inventory;
-import game.rpg_engine.world.Map;
-import game.rpg_engine.world.RelativeCord;
-
-import static game.rpg_engine.entity.Entity.BASIC_MOVEMENT;
+import game.rpg_engine.world.map.Map;
+import game.rpg_engine.world.coordinates.RelativeCord;
 
 public class Player extends Entity implements Ticker, HasInventory {
     Map currentMap;

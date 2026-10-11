@@ -3,7 +3,7 @@ package game.rpg_engine.entity;
 import game.rpg_engine.client.CanRender;
 import game.rpg_engine.enums.DamageSource;
 import game.rpg_engine.enums.EntityResponse;
-import game.rpg_engine.world.RelativeCord;
+import game.rpg_engine.world.coordinates.RelativeCord;
 
 import java.util.function.BiFunction;
 
