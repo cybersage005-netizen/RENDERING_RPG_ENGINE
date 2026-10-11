@@ -12,19 +12,19 @@ public class Slime extends PathfindingEntity
     public Slime(RelativeCord cord){
         super('S', cord, 50, 50, 4);
     }
-
+//
     public void tick(char ch, Player player){
         List<RelativeCord> path;
-        path = this.pathFind(player.getCord());
-
-        if(path.isEmpty()){
-            return;
-        }
-
-        boolean shouldWalk = Random.randBool(80);
-        if(!shouldWalk) return;
-
-        this.cord = path.getFirst();
+//        path = this.pathFind(player.getCord());
+//
+//        if(path.isEmpty()){
+//            return;
+//        }
+//
+//        boolean shouldWalk = Random.randBool(80);
+//        if(!shouldWalk) return;
+//
+//        this.cord = path.getFirst();
 
     }
 

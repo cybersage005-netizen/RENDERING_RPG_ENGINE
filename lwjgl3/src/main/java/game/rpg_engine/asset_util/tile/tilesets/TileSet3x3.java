@@ -12,7 +12,7 @@ public class TileSet3x3 extends SimpleTileSet {
         }
     }
 
-    public TextureRegion getBaseTexture(){
-        return this.tiles[1][1];
+    public TextureRegion getTile(int y, int x){
+        return this.tiles[y][x];
     }
 }

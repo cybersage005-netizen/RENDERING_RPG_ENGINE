@@ -36,7 +36,7 @@ public class Identifier {
         }
     }
 
-    private boolean isValid(String str, boolean shouldContainDot){
+    public static boolean isValid(String str, boolean shouldContainDot){
 
         if(str.contains(" ")){
             return false;
@@ -48,7 +48,12 @@ public class Identifier {
 
         AtomicBoolean isValid = new AtomicBoolean(true);
 
-        getList(str.toCharArray()).forEach(e -> {
+        ArrayList<Character> list = new ArrayList<>();
+        for(int i = 0; i< str.toCharArray().length; i++){
+            list.add(str.toCharArray()[i]);
+        }
+
+        list.forEach(e -> {
            if(Character.isUpperCase(e)){
                isValid.set(false);
            }

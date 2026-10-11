@@ -30,6 +30,10 @@ public class Registry<T>
         return true;
     }
 
+    public int getCount(){
+        return this.entries.size();
+    }
+
     public T get(String id) {
         return entries.get(id);
     }

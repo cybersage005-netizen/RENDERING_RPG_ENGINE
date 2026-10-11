@@ -8,6 +8,7 @@ import game.rpg_engine.asset_util.sprites.SpriteHandler;
 import game.rpg_engine.asset_util.tile.tilesets.TileSetHandler;
 import game.rpg_engine.client.renderers.MainRenderer;
 import game.rpg_engine.input.server.ServerHandler;
+import game.rpg_engine.registries.BuiltInRegistries;
 import game.rpg_engine.util.Constants;
 import game.rpg_engine.world.coordinates.WorldCord;
 import game.rpg_engine.world.map.Map;
@@ -51,8 +52,11 @@ public class Main implements ApplicationListener {
         spriteBatch = new SpriteBatch();
         viewport = new FitViewport(Constants.VIEWPORT_TILES_X, Constants.VIEWPORT_TILES_Y);
         SpriteHandler.init();
-        maps.register();
+        BuiltInRegistries.callOut();
         TileSetHandler.fetchAllTileSets();
+
+        maps.register();
+
     }
 
     @Override

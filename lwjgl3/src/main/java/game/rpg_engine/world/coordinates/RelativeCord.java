@@ -40,6 +40,47 @@ public class RelativeCord extends Coordinates<RelativeCord> {
         return !this.isValid() ? this : new RelativeCord(this.getX() + amt, this.getY(), this.getMap());
     }
 
+    public boolean isTopRight(){
+        return this.x == this.map.xBound()-1 && this.y == 0;
+    }
+    public boolean isTopLeft(){
+        return this.x == 0 && this.y == 0;
+    }
+    public boolean isBottomRight(){
+        return this.x == this.map.xBound() - 1 && this.y == this.map.yBound() - 1;
+    }
+    public boolean isBottomLeft(){
+        return this.x ==0 && this.y == this.map.yBound() - 1;
+    }
+
+    public boolean isTopCorner() {
+        return isTopLeft() || isTopRight();
+    }
+
+    public boolean isBottomCorner() {
+        return isBottomLeft() || isBottomRight();
+    }
+
+    public boolean isCorner() {
+        return isTopCorner() || isBottomCorner();
+    }
+
+    public boolean isTopEdge() {
+        return y == 0 && !isCorner();
+    }
+
+    public boolean isBottomEdge() {
+        return y == map.yBound() - 1 && !isCorner();
+    }
+
+    public boolean isLeftEdge() {
+        return x == 0 && !isCorner();
+    }
+
+    public boolean isRightEdge() {
+        return x == map.xBound() - 1 && !isCorner();
+    }
+
     public static int manhattenDist(RelativeCord cord1, RelativeCord cord2){
         int x = Math.abs(cord1.getX() - cord2.getX());
         int y = Math.abs(cord1.getY() - cord2.getY());

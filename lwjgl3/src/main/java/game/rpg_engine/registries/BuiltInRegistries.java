@@ -1,4 +1,5 @@
 package game.rpg_engine.registries;
+import game.rpg_engine.asset_util.tile.tilesets.SimpleTileSet;
 import game.rpg_engine.entity.Entity;
 import game.rpg_engine.registries.item.Item;
 
@@ -11,7 +12,9 @@ public final class BuiltInRegistries {
     private BuiltInRegistries() {}
 
     public static final Registry<Item> ITEMS = bootstrap(new Registry<>("items"));
-    public static final Registry<? extends Entity> ENTITES = bootstrap(new Registry<>("entities"));
+    public static final TileRegistry TILES = (TileRegistry) bootstrap(new TileRegistry());
+    public static final Registry<SimpleTileSet> TILESETS =  bootstrap(new Registry("tilesets"));
+
 
     public static void callOut(){
         System.out.println("Registring Registries...");

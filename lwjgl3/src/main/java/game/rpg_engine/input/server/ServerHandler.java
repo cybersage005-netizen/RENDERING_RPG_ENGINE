@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import game.rpg_engine.asset_util.sprites.BaseSprite;
 import game.rpg_engine.asset_util.sprites.SpriteHandler;
@@ -16,7 +17,8 @@ public class ServerHandler {
     }
 
     private static void movePlayer(BaseSprite sprite, float delta){
-        float speed = 0.35f;
+        float speed = 1f;
+
         if(InputUtils.isDPressed()){
             sprite.translateTo(speed*delta, 0);
         }

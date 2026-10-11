@@ -1,6 +1,7 @@
 package game.rpg_engine.asset_util.sprites;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Vector2;
 
 public class BaseSprite {
     private final SpriteId id;
@@ -28,6 +29,10 @@ public class BaseSprite {
         this.sprite.translate(x,y);
         this.x = sprite.getX();
         this.y = sprite.getY();
+    }
+
+    public void translateTo(Vector2 vector2){
+        this.translateTo(vector2.x, vector2.y);
     }
 
 
