@@ -31,6 +31,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void create() {
+        Gdx.app.log("DEBUG", "MY UPDATED MAIN.JAVA IS RUNNING");
         batch = new SpriteBatch();
 
         // Load the existing images.
@@ -57,7 +58,7 @@ public class Main extends ApplicationAdapter {
             new TextButton.TextButtonStyle();
 
         buttonStyle.font = font;
-        buttonStyle.fontColor = Color.WHITE;
+        buttonStyle.fontColor = Color.BLACK;
         buttonStyle.up = new TextureRegionDrawable(
             new TextureRegion(buttonTexture)
         );
@@ -72,25 +73,27 @@ public class Main extends ApplicationAdapter {
 
         // Create the menu table.
         table = new Table();
+        table = new Table();
         table.setFillParent(true);
+        table.center();
         stage.addActor(table);
+        stage.setDebugAll(true);
+        Gdx.app.log("UI TEST","Stage created and table added");
 
-        // Create exactly three buttons.
         TextButton playButton = new TextButton("PLAY", skin);
-        TextButton settingsButton =
-            new TextButton("SETTINGS", skin);
+        TextButton settingsButton = new TextButton("SETTINGS", skin);
         TextButton exitButton = new TextButton("EXIT", skin);
 
-        // PLAY centered above the other two buttons.
+// Main button
         table.add(playButton)
             .colspan(2)
-            .center()
             .width(250)
-            .height(70);
+            .height(70)
+            .center();
 
         table.row().padTop(20);
 
-        // SETTINGS on the left, EXIT on the right.
+// Bottom-left and bottom-right buttons
         table.add(settingsButton)
             .width(180)
             .height(55)
@@ -157,6 +160,8 @@ public class Main extends ApplicationAdapter {
                 Gdx.app.exit();
             }
         });
+        Gdx.app.log("UI TEST", "Stage actors: " + stage.getActors().size);
+        Gdx.app.log("UI TEST", "Table children: " + table.getChildren().size);
     }
 
     @Override
