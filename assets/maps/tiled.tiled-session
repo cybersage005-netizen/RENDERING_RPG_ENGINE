@@ -1,15 +1,54 @@
 {
-    "activeFile": "",
+    "activeFile": "0A_0A.tmx",
     "expandedProjectPaths": [
+        "objects",
+        "."
     ],
     "fileStates": {
+        "0A_0A.tmx": {
+            "scale": 2.4343749999999997,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 216.07188703465982,
+                "y": 159.79460847240054
+            }
+        },
+        "object_tileset.tsx": {
+            "scaleInDock": 1
+        },
+        "objects/object_tileset.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 4
+        },
+        "tileset.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 2,
+            "scaleInEditor": 4
+        }
     },
+    "frame.defaultDuration": 200,
+    "last.imagePath": "D:/GAME_MAIN/assets/maps/objects",
+    "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": "3",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
     "openFiles": [
+        "0A_0A.tmx",
+        "tileset.tsx"
     ],
     "project": "tiled.tiled-project",
     "recentFiles": [
-    ]
+        "tileset.tsx",
+        "0A_0A.tmx",
+        "objects/object_tileset.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 8,
+    "tileset.spacing": 16,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.type": 1
 }
