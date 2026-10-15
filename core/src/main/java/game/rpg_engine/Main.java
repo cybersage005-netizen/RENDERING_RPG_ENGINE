@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import game.rpg_engine.asset.AssetService;
 import game.rpg_engine.screen.GameScreen;
+import game.rpg_engine.tiled.TiledService;
 
 import javax.swing.text.View;
 import java.util.HashMap;
@@ -22,16 +23,16 @@ import java.util.ServiceConfigurationError;
 
 public class Main extends Game {
     private SpriteBatch batch;
-    private Texture image;
     private Viewport viewport;
     private OrthographicCamera camera;
     private AssetService assetService;
+
     private final Map<Class<? extends Screen>, Screen> SCREEN_CACHE = new HashMap<>();
 
     public static final int TILE_SIZE_PX = 16;
     public static final float UNIT_SCALE = 1f / TILE_SIZE_PX;
     public static final float VIEWPORT_TILES_X = 16f;
-    public static final float VIEWPORT_TILES_Y = 9f; // 16:9
+    public static final float VIEWPORT_TILES_Y = 9f;
 
     public Viewport getViewport(){
         return this.viewport;
@@ -52,7 +53,7 @@ public class Main extends Game {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        image = new Texture("libgdx.png");
+
         camera = new OrthographicCamera();
         viewport = new FitViewport(VIEWPORT_TILES_X, VIEWPORT_TILES_Y, camera);
         assetService = new AssetService(new InternalFileHandleResolver());
@@ -74,7 +75,7 @@ public class Main extends Game {
         if(scene == null){
             throw new GdxRuntimeException("No scene exists in the cache memory");
         }
-        super.setScreen(scene);   // <-- 'scene', not 'screen'
+        super.setScreen(scene);
     }
 
     @Override

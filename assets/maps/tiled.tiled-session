@@ -7,13 +7,14 @@
     "fileStates": {
         "0A_0A.tmx": {
             "scale": 2.4343749999999997,
-            "selectedLayer": 2,
+            "selectedLayer": 0,
             "viewCenter": {
                 "x": 216.07188703465982,
                 "y": 159.79460847240054
             }
         },
         "object_tileset.tsx": {
+            "dynamicWrapping": true,
             "scaleInDock": 1
         },
         "objects/object_tileset.tsx": {
