@@ -3,12 +3,15 @@ package game.rpg_engine.tiled;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.FileTextureData;
 import com.badlogic.gdx.maps.tiled.TiledMapTile;
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject;
 import com.badlogic.gdx.math.Vector2;
 import game.rpg_engine.Main;
 import game.rpg_engine.asset.AssetService;
+import game.rpg_engine.asset.atlas.AtlasAsset;
 import game.rpg_engine.component.Graphic;
 import game.rpg_engine.component.Transform;
 
@@ -55,7 +58,19 @@ public class TiledAshleyConfigurator {
         entity.add(new Transform(position, z, size, scaling, 0f));
     }
 
+
     private TextureRegion getTextureRegion(TiledMapTile tile) {
+        String atlasAssetStr = tile.getProperties().get("atlasAsset", "OBJECTS", String.class);
+        AtlasAsset atlasAsset = AtlasAsset.valueOf(atlasAssetStr);
+        FileTextureData textureData = (FileTextureData) tile.getTextureRegion().getTexture().getTextureData();
+        String atlasKey = textureData.getFileHandle().nameWithoutExtension();
+        TextureAtlas textureAtlas = service.get(atlasAsset);
+        TextureAtlas.AtlasRegion region = textureAtlas.findRegion(atlasKey + "/" + atlasKey);
+        if (region != null) {
+            return region;
+        }
+
+
         return tile.getTextureRegion();
     }
 }

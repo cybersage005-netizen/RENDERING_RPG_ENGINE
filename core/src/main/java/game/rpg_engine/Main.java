@@ -14,6 +14,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import game.rpg_engine.asset.AssetService;
 import game.rpg_engine.screen.GameScreen;
+import game.rpg_engine.screen.LoadingScreen;
 import game.rpg_engine.tiled.TiledService;
 
 import javax.swing.text.View;
@@ -50,6 +51,10 @@ public class Main extends Game {
         return this.assetService;
     }
 
+    public void removeScreen(Screen screen) {
+        SCREEN_CACHE.remove(screen.getClass());
+    }
+
     @Override
     public void create() {
         batch = new SpriteBatch();
@@ -57,8 +62,8 @@ public class Main extends Game {
         camera = new OrthographicCamera();
         viewport = new FitViewport(VIEWPORT_TILES_X, VIEWPORT_TILES_Y, camera);
         assetService = new AssetService(new InternalFileHandleResolver());
-        addScreen(new GameScreen(this));
-        setScreen(GameScreen.class);
+        addScreen(new LoadingScreen(this));
+        setScreen(LoadingScreen.class);
     }
 
     public void addScreen(Screen sc){
