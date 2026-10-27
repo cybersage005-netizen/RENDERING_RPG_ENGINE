@@ -27,6 +27,7 @@ public class Main extends Game {
     private Viewport viewport;
     private OrthographicCamera camera;
     private AssetService assetService;
+    private InputMultiplexer inputMultiplexer;
 
     private final Map<Class<? extends Screen>, Screen> SCREEN_CACHE = new HashMap<>();
 
@@ -57,8 +58,9 @@ public class Main extends Game {
 
     @Override
     public void create() {
+        inputMultiplexer = new InputMultiplexer();
+        Gdx.input.setInputProcessor(inputMultiplexer);
         batch = new SpriteBatch();
-
         camera = new OrthographicCamera();
         viewport = new FitViewport(VIEWPORT_TILES_X, VIEWPORT_TILES_Y, camera);
         assetService = new AssetService(new InternalFileHandleResolver());
@@ -91,6 +93,15 @@ public class Main extends Game {
         this.batch.dispose();
         this.assetService.debug();
         super.dispose();
+    }
+
+    public void setInputProcessors(InputProcessor... processors) {
+        inputMultiplexer.clear();
+        if (processors == null) return;
+
+        for (InputProcessor processor : processors) {
+            inputMultiplexer.addProcessor(processor);
+        }
     }
 
 }

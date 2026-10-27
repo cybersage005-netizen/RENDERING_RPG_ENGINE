@@ -4,7 +4,7 @@
  <tileset firstgid="193" source="object_tileset.tsx"/>
  <layer id="1" name="ground" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJzbxsDAsG2IY3s66xvqWBWI1QYgXgyB2GgA45uWfhuKeDj4gRT/0Mq/lJo73OJhION4uGIWIGYFYjY62ysAxJxALETlOCBkhgwQywKx3CAIe0owAK/OnJY=
+   eJzbxsDAsG2IY3s66xvqWBWI1QYgXgyB2GgA45uWfhuKeDj4gRT/0Mq/lJo7lOKBj872MQIxExAz0zmseKE0P539KwnEUkAsjSbOAsSsQMxGZ/cIADEnEAshiVEjDgiZIQPEskAsR2f/UhsDAJCklq4=
   </data>
  </layer>
  <layer id="2" name="foreground" width="30" height="20">
@@ -15,7 +15,12 @@
  <objectgroup id="4" name="objects">
   <object id="4" gid="193" x="253.299" y="298.773" width="80" height="112"/>
   <object id="11" gid="193" x="160.051" y="260.981" width="80" height="112"/>
-  <object id="12" gid="194" x="117.915" y="291.225" width="32" height="32"/>
+  <object id="12" gid="194" x="117.915" y="291.225" width="32" height="32">
+   <properties>
+    <property name="controller" type="bool" value="true"/>
+    <property name="speed" type="float" value="4"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer id="3" name="background" width="30" height="20">
   <data encoding="base64" compression="zlib">
